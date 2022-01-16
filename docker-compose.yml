@@ -1,0 +1,29 @@
+version : '2'
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - 80:8080
+    depends_on:
+      - maria_db
+    networks:
+      - networkApplication
+
+  maria_db:
+    container_name: db
+    image: "mariadb"
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_USER=spring
+      - MYSQL_PASSWORD=spring
+      - MYSQL_DATABASE=user
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+    networks:
+      - networkApplication
+
+networks:
+  networkApplication:
+    driver: bridge
