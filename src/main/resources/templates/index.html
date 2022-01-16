@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+            <!-- Message -->
+            <div class="fadeIn first">
+                <h3>Connectez-vous</h3>
+            </div>
+
+            <!-- Login Form -->
+            <form th:action="@{/signin}" method="post" th:object="${user}">
+                <input type="text" id="login" class="fadeIn second" name="mail" placeholder="mail" th:field="*{mail}">
+                <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" th:field="*{password}">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+            <!-- Inscription -->
+            <div id="formFooter">
+                <a class="underlineHover" th:href="@{/signup}">S'Inscrire</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
