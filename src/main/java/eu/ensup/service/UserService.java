@@ -28,14 +28,4 @@ public class UserService {
         return this.userRepository.findByMailAndPassword(user.getMail(), user.getPassword());
     }
 
-    @PostConstruct
-    public void initialisation() {
-        System.out.println("SERVICE: creation spring");
-    }
-
-    @PreDestroy
-    public void destruction() {
-        System.out.println("SERVICE: destruction spring");
-    }
-
 }

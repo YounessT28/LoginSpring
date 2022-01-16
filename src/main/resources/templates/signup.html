@@ -2,7 +2,7 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>Inscription</title>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -14,19 +14,19 @@
 
             <!-- Message -->
             <div class="fadeIn first">
-                <h3>Connectez-vous</h3>
+                <h3>Inscription</h3>
             </div>
 
             <!-- Login Form -->
-            <form th:action="@{/signin}" method="post" th:object="${user}">
+            <form th:action="@{/register}" method="post" th:object="${user}">
                 <input type="text" id="login" class="fadeIn second" name="mail" placeholder="mail" th:field="*{mail}">
                 <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" th:field="*{password}">
-                <input type="submit" class="fadeIn fourth" value="Connexion">
+                <input type="submit" class="fadeIn fourth" value="Inscription">
             </form>
 
             <!-- Inscription -->
             <div id="formFooter">
-                <a class="underlineHover" th:href="@{/signup}">S'Inscrire</a>
+                <a class="underlineHover" th:href="@{/}">Se connecter</a>
             </div>
 
         </div>

@@ -39,9 +39,16 @@ public class UserController {
         }
     }
 
-    @PostMapping("/signup")
+    @GetMapping("/signup")
     public String signup(User user,Model model){
+        model.addAttribute("user", new User());
+        return "signup";
+    }
 
+    @PostMapping("/register")
+    public String register(User user, Model model){
+        userService.create(user);
+        model.addAttribute("message", "Inscription réussie");
         return "index";
     }
 
