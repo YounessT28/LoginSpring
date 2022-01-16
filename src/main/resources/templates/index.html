@@ -20,8 +20,9 @@
             <!-- Login Form -->
             <form th:action="@{/signin}" method="post" th:object="${user}">
                 <input type="text" id="login" class="fadeIn second" name="mail" placeholder="mail" th:field="*{mail}">
-                <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" th:field="*{password}">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" th:field="*{password}">
                 <input type="submit" class="fadeIn fourth" value="Connexion">
+                <div th:if="${message}"> [[${message}]] </div>
             </form>
 
             <!-- Inscription -->

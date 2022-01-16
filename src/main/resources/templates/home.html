@@ -2,9 +2,32 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    Bienvenue
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <!-- Message -->
+        <div class="fadeIn first">
+            <h3>Votre profil</h3>
+        </div>
+
+        <p>E-mail</p>
+        <input type="text" id="login" class="fadeIn second" name="mail" placeholder="mail" th:value="${user.mail}" disabled="true">
+        <p>Mot de passe</p>
+        <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" th:value="${user.password}" disabled="true">
+
+        <!-- Inscription -->
+        <div id="formFooter">
+            <a class="underlineHover" th:href="@{/}">Déconnexion</a>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
