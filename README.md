@@ -53,3 +53,5 @@ Patientez un peu et tapez sur votre navigateur : http://127.0.0.1/
 
 La page de connexion s'affiche !
 
+Retrouvez l'image qui a été créé sur Docker Hub : https://hub.docker.com/r/younesst/loginspring
+
