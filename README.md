@@ -17,7 +17,7 @@ L'appli regroupe 3 page simple :
 # Conteneurisation de l'application avec Docker
 _________________________________
 
-##Dockerfile
+## Dockerfile
 
 Un fichier Dockerfile a été créé permettant de construire l'image Docker de notre application
 
@@ -32,7 +32,7 @@ Il éxécute ensuite les commandes suivante :
 Enfin, il éxécute le fichier jar généré via la commande : 
 - java -jar login-0.0.1-SNAPSHOT.jar
 
-##Docker-compose
+## Docker-compose
 
 Ensuite, un fichier docker-compose.yml a été créé pour configurer le déploiement de deux services dans un container : 
 - MariaDB
