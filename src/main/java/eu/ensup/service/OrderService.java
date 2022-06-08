@@ -1,4 +1,2 @@
-package eu.ensup.service;
-
-public class OrderService {
+package eu.ensup.service;public class OrderService {
 }
