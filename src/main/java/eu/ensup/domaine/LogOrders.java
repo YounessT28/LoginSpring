@@ -13,12 +13,12 @@ public class LogOrders {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
-    private int order_id;
-    private int user_id;
+    private int orderid;
+    private int userid;
 
-    public LogOrders(int order_id, int user_id) {
-        this.order_id = order_id;
-        this.user_id = user_id;
+    public LogOrders(int orderid, int userid) {
+        this.orderid = orderid;
+        this.userid = userid;
     }
 
     public LogOrders(){}

@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface LogOrderRepository extends JpaRepository<LogOrders, Integer> {
-    LogOrders findByIdUser(int id);
+    LogOrders findByUserid(int id);
 }

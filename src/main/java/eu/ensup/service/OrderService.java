@@ -1,2 +1,7 @@
-package eu.ensup.service;public class OrderService {
+package eu.ensup.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
 }

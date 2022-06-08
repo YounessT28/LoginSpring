@@ -13,11 +13,11 @@ public class Orders {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
-    private int product_id;
+    private int productid;
     private int quantity;
 
-    public Orders(int product_id, int quantity) {
-        this.product_id = product_id;
+    public Orders(int productid, int quantity) {
+        this.productid = productid;
         this.quantity = quantity;
     }
 
