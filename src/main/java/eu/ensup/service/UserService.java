@@ -2,6 +2,7 @@ package eu.ensup.service;
 
 import eu.ensup.dao.UserRepository;
 import eu.ensup.domaine.User;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class UserService {
     }
 
     // Connexion
-    public User findUser(User user){
+    public User findUser( User user){
         return this.userRepository.findByMailAndPassword(user.getMail(), user.getPassword());
     }
 
