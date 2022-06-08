@@ -11,20 +11,18 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class User {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String mail;
-    private String password;
+    private String name;
+    private int quantity;
 
-    public User(){
+    public Product(){     }
 
-    }
-
-    public User(String mail, String password){
-        this.mail = mail;
-        this.password = password;
+    public Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
     }
 }
