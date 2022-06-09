@@ -22,4 +22,16 @@ public class ProductService {
     public Product findUser(Product product){
         return this.productRepository.findByName(product.getName());
     }
+
+    // Save product
+    public void update(Product product, int newquantity){
+
+        Product p = this.productRepository.findByName(product.getName());
+        p.setQuantity(newquantity);
+        this.productRepository.save(p);
+    }
+
+    public void delete(Product product){
+        this.productRepository.delete(product);
+    }
 }
