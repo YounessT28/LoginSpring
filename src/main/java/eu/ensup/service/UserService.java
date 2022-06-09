@@ -29,14 +29,6 @@ public class UserService {
         return this.userRepository.findByMailAndPassword(user.getMail(), user.getPassword());
     }
 
-    // Connexion
-    public User Update( User user, User newUser){
-       user = this.userRepository.findByMailAndPassword(user.getMail(), user.getPassword());
-
-        user.setMail(newUser.getMail());
-        user.setPassword(newUser.getPassword());
-       return user;
-    }
 
     public void delete(User user) {
         this.userRepository.delete(user);
@@ -47,7 +39,7 @@ public class UserService {
       user.setPassword(newUser.getPassword());
       user.setMail(newUser.getMail());
 
-     ///   this.userRepository.save(user);
+      this.userRepository.save(user);
 
     }
 }

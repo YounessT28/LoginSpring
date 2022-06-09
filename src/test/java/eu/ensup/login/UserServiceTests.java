@@ -15,10 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-
-import static net.bytebuddy.matcher.ElementMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
 import static org.mockito.Mockito.*;
 
 
@@ -40,28 +36,24 @@ class UserServiceTests {
     }
 
     @Test
+    @DisplayName("Get an user")
+    void testGetProduct() {
+        user = new User("yamine@gmail.com", "564564654");
+
+        when(userRepository.findByMailAndPassword(user.getMail(), user.getPassword())).thenReturn(user);
+
+        userService.findUser(user);
+
+        verify(userRepository, times(1)).findByMailAndPassword(user.getMail(), user.getPassword());
+    }
+
+    @Test
     @DisplayName("Creation of a user")
-    void create() {
+    void testCreateUser() {
         user = new User("yamine@gmail.com", "564564654");
         when(userRepository.save(user)).thenReturn(user);
         userService.create(user);
         verify(userRepository, times(1)).save(user);
-    }
-
-
-
-
-    @Test
-    @DisplayName("Get all of users")
-    void getAll() {
-        user = new User("yamine@gmail.com", "564564654");
-
-        userRepository.save(user);
-
-        verify(userRepository).save(user);
-
-         List<User> list = userRepository.findAll();
-
     }
 
 
@@ -79,17 +71,18 @@ class UserServiceTests {
 
     @Test
     @DisplayName("Update a User email")
-    void testUpdateProduct() {
+    void testUpdateUser() {
         user = new User("yamine@gmail.com", "564564654");
         User newUser = new User("yamine@gmail.com", "564564654");
 
-        when(userRepository.save(user)).thenReturn(user);
+         when(userRepository.save(user)).thenReturn(user);
          when(userRepository.findByMailAndPassword(user.getMail(), user.getPassword())).thenReturn(user);
 
        userService.update(user, newUser); // Update user
 
 
        verify(userRepository, times(1)).findByMailAndPassword(user.getMail(), user.getPassword());
+       verify(userRepository, times(1)).save(user);
 
     }
 }
