@@ -13,7 +13,7 @@ public class LogOrdersServiceTests {
     private LogOrdersService logOrdersService;
 
     @Test
-    public void test_LogOrdersService() {
+    public void testLogOrdersService() {
         assertTrue(true);
     }
 }

@@ -13,7 +13,7 @@ public class ProductServiceTests {
     private ProductService productService;
 
     @Test
-    public void test_ProducstService() {
+    public void testProducstService() {
         assertTrue(true);
     }
 }
