@@ -8,19 +8,23 @@ import eu.ensup.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class UserServiceTests {
-
 
     @InjectMocks
     private UserService userService;
