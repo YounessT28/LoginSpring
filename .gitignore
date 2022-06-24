@@ -6,3 +6,6 @@ login.iml
 HELP.md
 
 target/
+/devOps/shop2.pem
+/devOps/id_rsa.pub
+/devOps/id_rsa

@@ -8,23 +8,23 @@ import eu.ensup.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import javax.sql.DataSource;
 import java.util.List;
 
+
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
+
+@SpringBootTest
 class UserServiceTests {
+
 
     @InjectMocks
     private UserService userService;
@@ -40,26 +40,40 @@ class UserServiceTests {
     }
 
     @Test
-    @DisplayName("Get an user")
-    void testGetProduct() {
-        user = new User("yamine@gmail.com", "564564654");
-
-        when(userRepository.findByMailAndPassword(user.getMail(), user.getPassword())).thenReturn(user);
-
-        userService.findUser(user);
-
-        verify(userRepository, times(1)).findByMailAndPassword(user.getMail(), user.getPassword());
-    }
-
-    @Test
     @DisplayName("Creation of a user")
-    void testCreateUser() {
+    void create() {
         user = new User("yamine@gmail.com", "564564654");
         when(userRepository.save(user)).thenReturn(user);
         userService.create(user);
         verify(userRepository, times(1)).save(user);
     }
 
+
+
+
+    @Test
+    @DisplayName("Get all of users")
+    void getAll() {
+        user = new User("yamine@gmail.com", "564564654");
+        userRepository.save(user);
+        verify(userRepository).save(user);
+
+        List<User> list = userRepository.findAll();
+
+    }
+
+
+    @Test
+    @DisplayName("Get user by id")
+    void get() {
+        user = new User("yamine@gmail.com", "564564654");
+        userRepository.save(user);
+
+        verify(userRepository).save(user);
+
+        List<User> list = userRepository.findAll();
+
+    }
 
     @Test
     @DisplayName("Delete a user")
@@ -75,18 +89,17 @@ class UserServiceTests {
 
     @Test
     @DisplayName("Update a User email")
-    void testUpdateUser() {
+    void testUpdateProduct() {
         user = new User("yamine@gmail.com", "564564654");
         User newUser = new User("yamine@gmail.com", "564564654");
 
-         when(userRepository.save(user)).thenReturn(user);
+        when(userRepository.save(user)).thenReturn(user);
          when(userRepository.findByMailAndPassword(user.getMail(), user.getPassword())).thenReturn(user);
 
        userService.update(user, newUser); // Update user
 
 
        verify(userRepository, times(1)).findByMailAndPassword(user.getMail(), user.getPassword());
-       verify(userRepository, times(1)).save(user);
 
     }
 }
