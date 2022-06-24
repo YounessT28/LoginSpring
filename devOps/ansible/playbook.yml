@@ -54,6 +54,6 @@
         mode: u+x,g+x,o+x
     - name: deploy Docker Compose stack
       docker_compose:
-        project_src: /LoginSpring/
+        project_src: /shop/
         files:
         - docker-compose.yml
