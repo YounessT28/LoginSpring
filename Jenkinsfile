@@ -57,7 +57,4 @@ pipeline {
         mail to: 'youness.t28100@gmail.com',               
                     subject: "Job $JOB_NAME failed" ,
                     body: """Build $BUILD_NUMBER failed.    
-Go to $BUILD_URL for more info."""
-    }
-    }
-}
+Go to $BUILD_URL for more in
